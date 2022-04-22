@@ -49,7 +49,7 @@ $(function () {
       let userData = $(this).serialize();
       $.post('/api/login',userData,res => {
         if(res.status === 1 ){
-            return  layer.msg(result.message);
+            return  layer.msg(res.message);
         }
         layer.msg(res.message);
         // console.log(res.token);
