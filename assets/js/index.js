@@ -39,10 +39,21 @@ function getUserInfo(){
       if(e.status === 1){
         return layer.message;
       }
+      console.log(e);
       renderAvatar(e.data);
       // console.log(username);
       // console.log();
-    }
+    },
+    // //加入comple 无论成功或失败 都进行调用
+    // complete: res => {
+    //   // console.log(res);
+    //   //返回responseJSON 对 status和 message进行验证
+    //   if(res.responseJSON.status === 1 && 
+    //     res.responseJSON.message === '身份认证失败！'){
+    //       localStorage.removeItem('token');
+    //       location.href = '/login.html';
+    //   }
+    // }
   });
 
 }
@@ -51,6 +62,11 @@ function renderAvatar(user) {
   $('#welcome').html('欢迎&nbsp;&nbsp;'+name);
   // 渲染图片头像
   if (user.user_pic !== null){
+    // let pic = user.user_pic;
+    // pic = pic.replace("data:image/png;base64,","")
+    // pic = pic.replace("/+\/","");
+    
+    // console.log(pic);
     $('.layui-nav-img').attr('src',user.user_pic).show();
     $('.text-avatar').hide();
   }else{

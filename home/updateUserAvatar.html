@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/lib/layui-v2.6.8/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/updateUserAvatar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha/cropper.min.css">
+</head>
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">更换头像</div>
+        <div class="layui-card-body">
+            <!-- 第一行的图片裁剪和预览区域 -->
+            <div class="row1">
+                <!-- 图片裁剪区域 -->
+                <div class="cropper-box">
+                <!-- 这个 img 标签很重要，将来会把它初始化为裁剪区域 -->
+                <img id="image" src="https://fengyuanchen.github.io/cropper.js/images/picture.jpg" />
+                </div>
+                <!-- 图片的预览区域 -->
+                <div class="preview-box">
+                <div>
+                    <!-- 宽高为 100px 的预览区域 -->
+                    <div class="img-preview w100"></div>
+                    <p class="size">100 x 100</p>
+                </div>
+                <div>
+                    <!-- 宽高为 50px 的预览区域 -->
+                    <div class="img-preview w50"></div>
+                    <p class="size">50 x 50</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- 第二行的按钮区域 -->
+            <div class="row2">
+                <input type="file" name="file" id="file" accept="image/png,image/jpeg">
+                <button type="button" class="layui-btn" id="btnChooseImage">上传</button>
+                <button type="button" class="layui-btn layui-btn-danger" id="btnUpload">确定</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cropper/1.0.1/jquery-cropper.min.js"></script>
+    <script src="/assets/lib/layui-v2.6.8/layui/layui.js"></script>
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/js/updateUserAvatar.js"></script>
+
+</body>
+</html>
