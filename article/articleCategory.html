@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/lib/layui-v2.6.8/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/article/articleCategory.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>文章管理</span>
+            <button type="button" class="layui-btn layui-btn-normal  layui-btn-sm" id="addCategory">添加类别</button>        
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table"  lay-filter="tableData">
+                <colgroup>
+                  <col >
+                  <col>
+                  <col width="200">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>分类名称</th>
+                    <th>分类别名</th>
+                    <th>操作</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+        </div>
+      </div>
+      <!-- 模板引擎 渲染table表格 -->
+    <script type="text/html" id="tpl_table">
+        {{#  layui.each(d, function(index, item){ }}
+        <tr>
+            <td id="name">{{item.name}}</td>
+            <td id="alias">{{item.alias}}</td>
+            <td>
+             <button type="button" class="layui-btn layui-btn-xs" id="articleEdit" data-id ="{{item.Id}}">编辑</button>
+             <button type="button" class="layui-btn  layui-btn-danger layui-btn-xs" id="articleDel" data-id ="{{item.Id}}">删除</button>
+            </td>
+        </tr>
+      {{#  }); }}
+      {{#  if(d.length === 0){ }}
+        无数据
+      {{#  } }} 
+    </script>
+
+    <!-- 新增文章类型 -->
+    <script type="text/html" id="dialog-add">
+        <form class="layui-form" id="categoryForm">
+            <div class="layui-form-item">
+              <label class="layui-form-label">分类名称</label>
+              <div class="layui-input-inline">
+                <input type="text" name="name" required  lay-verify="required" placeholder="请输入标题"  autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <label class="layui-form-label">分类别名</label>
+              <div class="layui-input-inline">
+                <input type="text" name="alias" required lay-verify="required" placeholder="请输入标题"  autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <div class="layui-input-block">
+                <button class="layui-btn" lay-submit >确认添加</button>
+                <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">重置</button>
+              </div>
+            </div>
+          </form>
+    </script>
+
+    <!-- 编辑文章分类 -->
+    <script type="text/html" id="dialog-update">
+      <form class="layui-form" id="updateCategoryForm">
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类名称</label>
+            <div class="layui-input-inline">
+              <input type="text" name="name" placeholder="请输入标题" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">分类别名</label>
+            <div class="layui-input-inline">
+              <input type="text" name="alias" placeholder="请输入标题"   class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit >确认更改</button>
+              <button class="layui-btn layui-btn-primary" id="btnclose">取消</button>
+            </div>
+          </div>
+        </form>
+  </script>
+    <script src="/assets/lib/layui-v2.6.8/layui/layui.js"></script>
+    <!-- <script src="/assets/lib/layui-v2.6.8/l"></script> -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/js/article/articleCategory.js"></script>
+    
+</body>
+</html>

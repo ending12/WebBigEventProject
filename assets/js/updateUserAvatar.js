@@ -58,8 +58,7 @@ $(function(){
       data: {'avatar':dataURL},
       success: e => {
         if(e.status === 1){
-          layer.msg(e.message);
-
+          return layer.msg(e.message);
         }
         layer.msg(e.message);
         window.parent.getUserInfo();
